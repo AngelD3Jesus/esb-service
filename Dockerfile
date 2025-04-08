@@ -7,6 +7,12 @@ RUN mvn clean package -DskipTests
 # Etapa 2: Ejecutar el proyecto
 FROM openjdk:17
 WORKDIR /app
+
+# Limitar uso de memoria en el contenedor
+ENV JAVA_OPTS="-Xmx256m -Xms128m"
+
 COPY --from=build /app/target/*.jar app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]

@@ -31,3 +31,21 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Archivos binarios y empaquetados
+*.jar
+*.war
+*.zip
+*.tar.gz
+
+# Archivos de log y errores
+*.log
+hs_err_pid*
+replay_pid*
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# target completo
+target/
